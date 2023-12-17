@@ -1,5 +1,7 @@
 import json
 
+from src.main_class import Transaction
+
 
 def load_transactions_from_file(file_path: str) -> list:
     """
@@ -21,3 +23,24 @@ def sorted_transactions(transactions: list) -> list:
     operations = [operation for operation in transactions if operation.get("state") == "EXECUTED"]
     sorted_operations = sorted(operations, key=lambda x: x["date"], reverse=True)
     return sorted_operations
+
+
+def get_instances(transactions: list) -> list:
+    """
+    Get instances from transactions
+    :param transactions:
+    :return:
+    """
+    operation_instances = []
+    for operation in transactions:
+        if operation:
+            operation_instance = Transaction(
+                date=operation["date"],
+                description=operation["description"],
+                trans_from=operation.get("from", ""),
+                trans_to=operation["to"],
+                amount=operation["operationAmount"]["amount"],
+                currency=operation["operationAmount"]["currency"]["name"],
+            )
+            operation_instances.append(operation_instance)
+    return operation_instances

@@ -17,10 +17,8 @@ class Transaction:
 
     def __str__(self) -> str:
         return f"{self.date}, {self.description},\n" \
-               f"{self.trans_from}, {self.trans_to}, {self.amount},\n" \
-               f"{self.currency})"
+               f"{self.trans_from}, {self.trans_to}, {self.amount}, {self.currency})"
 
     def __repr__(self) -> str:
         return f"Transaction({self.date}, {self.description},\n" \
-               f"{self.trans_from}, {self.trans_to}, {self.amount},\n" \
-               f"{self.currency})"
+               f"{self.trans_from}, {self.trans_to}, {self.amount}, {self.currency})\n"
