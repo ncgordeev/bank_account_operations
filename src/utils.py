@@ -25,6 +25,16 @@ def sorted_transactions(transactions: list) -> list:
     return sorted_operations
 
 
+def print_last_operations(operations):
+    """
+    Return last five operations
+    :param operations:
+    :return:
+    """
+    latest_operations = operations[:5]
+    return latest_operations
+
+
 def get_instances(transactions: list) -> list:
     """
     Get instances from transactions

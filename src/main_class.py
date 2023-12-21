@@ -16,12 +16,12 @@ class Transaction:
         self.currency = currency
 
     @staticmethod
-    def formatting_date(date) -> str:
+    def formatting_date(date: str) -> str:
         formatted_date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
         return formatted_date.strftime("%d.%m.%Y")
 
     @staticmethod
-    def masking_number(card_or_account_number):
+    def masking_number(card_or_account_number: str) -> str:
         split_number = card_or_account_number.split()
 
         if card_or_account_number.startswith("Счет"):
