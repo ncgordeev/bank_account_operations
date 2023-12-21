@@ -25,7 +25,7 @@ def sorted_transactions(transactions: list) -> list:
     return sorted_operations
 
 
-def print_last_operations(operations):
+def print_last_operations(operations: list) -> list:
     """
     Return last five operations
     :param operations:

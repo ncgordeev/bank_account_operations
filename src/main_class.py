@@ -8,10 +8,10 @@ class Transaction:
 
     def __init__(self, date: str, description: str, trans_from: str,
                  trans_to: str, amount: float, currency: str) -> None:
-        self.date = date
+        self.date = self.formatting_date(date)
         self.description = description
-        self.trans_from = trans_from
-        self.trans_to = trans_to
+        self.trans_from = self.masking_number(trans_from)
+        self.trans_to = self.masking_number(trans_to)
         self.amount = amount
         self.currency = currency
 
@@ -35,9 +35,11 @@ class Transaction:
         return " ".join(split_number)
 
     def __str__(self) -> str:
-        return f"{self.date}, {self.description},\n" \
-               f"{self.trans_from}, {self.trans_to}, {self.amount}, {self.currency})"
+        return f"{self.date} {self.description}\n" \
+               f"{self.trans_from} -> {self.trans_to}\n" \
+               f"{self.amount} {self.currency}\n"
 
     def __repr__(self) -> str:
-        return f"Transaction({self.date}, {self.description},\n" \
-               f"{self.trans_from}, {self.trans_to}, {self.amount}, {self.currency})\n"
+        return f"(Transaction({self.date} {self.description} \
+                 {self.trans_from} {self.trans_to} \
+                 {self.amount} {self.currency}))"
