@@ -22,6 +22,8 @@ class Transaction:
 
     @staticmethod
     def masking_number(card_or_account_number: str) -> str:
+        if card_or_account_number is None:
+            return f"Открыт новый счет"
         split_number = card_or_account_number.split()
 
         if card_or_account_number.startswith("Счет"):
