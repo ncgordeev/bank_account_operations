@@ -22,16 +22,7 @@ def sorted_transactions(transactions: list) -> list:
     """
     operations = [operation for operation in transactions if operation.get("state") == "EXECUTED"]
     sorted_operations = sorted(operations, key=lambda x: x["date"], reverse=True)
-    return sorted_operations
-
-
-def print_last_operations(operations: list) -> list:
-    """
-    Return last five operations
-    :param operations:
-    :return:
-    """
-    latest_operations = operations[:5]
+    latest_operations = sorted_operations[:5]
     return latest_operations
 
 
